@@ -1,0 +1,19 @@
+<div>
+    <h1>Prestamos Activos</h1>
+</div>
+<nz-table [nzShowPagination]="false" nzBordered>
+    <thead>
+        <tr>
+            <th>Libro</th>
+            <th>Prestado a:</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prestamo of reservasActivas">
+            <td>{{prestamo.titulo}}</td>
+            <td>{{prestamo.nombre}}</td>
+            <td><button nz-button nzType="primary" nzShape="round" (click)="regresar(prestamo.id)">Regresar</button></td>
+        </tr>
+    </tbody>
+</nz-table>

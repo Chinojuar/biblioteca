@@ -1,0 +1,52 @@
+<div class="contenedor-libros">
+    <ul>
+        <h1>Libros</h1>
+
+
+        <nz-table #editRowTable [nzShowPagination]="false" nzWidth="256px" nzBordered [nzData]="libros">
+            <thead>
+                <tr>
+                    <th nzWidth="30%">Título</th>
+                    <th>Autor</th>
+                    <th>Fecha de publicación</th>
+                    <th>Descripción</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let libro of libros" class="editable-row">
+                    <td>
+                        <div class="editable-cell" [hidden]="editId === libro.id" (click)="startEdit(libro.id)">
+                            {{libro.titulo }}
+                        </div>
+                        <input [hidden]="editId !== libro.id" type="text" nz-input [(ngModel)]="libro.titulo" (blur)="stopEdit(libro)" />
+                    </td>
+                    <td>
+                        <div class="editable-cell" [hidden]="editId === libro.id" (click)="startEdit(libro.id)">
+                            {{libro.autor }}
+                        </div>
+                        <input [hidden]="editId !== libro.id" type="text" nz-input [(ngModel)]="libro.autor" (blur)="stopEdit(libro)" />
+                    </td>
+                    <td>
+                        <div class="editable-cell" [hidden]="editId === libro.id" (click)="startEdit(libro.id)">
+                            {{libro.fecha_pub}}
+                        </div>
+                        <input [hidden]="editId !== libro.id" type="text" nz-input [(ngModel)]="libro.fecha_pub" (blur)="stopEdit(libro)" />
+                    </td>
+                    <td>
+                        <div class="editable-cell" [hidden]="editId === libro.id" (click)="startEdit(libro.id)">
+                            {{libro.descripcion }}
+                        </div>
+                        <input [hidden]="editId !== libro.id" type="text" nz-input [(ngModel)]="libro.descripcion" (blur)="stopEdit(libro)" />
+                    </td>
+                    <td>
+                        <a nz-popconfirm nzPopconfirmTitle="¿Deseas eliminar?" (nzOnConfirm)="borrarLibro(libro.id)"> <i nz-icon nzType="delete" nzTheme="fill" nz-col="red"></i></a>
+                    </td>
+                    <td> <button nz-button nzType="primary" nzShape="round" (click)="verDetalle(libro.id)">Ver detalles</button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </nz-table>
+    </ul>
+</div>

@@ -1,0 +1,61 @@
+<nz-layout class="app-layout">
+    <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+        <div class="sidebar-logo">
+            <a href="/vista-libros">
+                <img src="https://www.svgrepo.com/show/356858/library.svg" alt="logo">
+                <h1>Librería</h1>
+            </a>
+        </div>
+        <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+            <li nz-submenu nzOpen nzTitle="Usuarios" nzIcon="user">
+                <ul>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/registro-usuarios">Registro Usuarios</a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/lista-usuarios">Lista Usuarios</a>
+                    </li>
+                </ul>
+            </li>
+            <li nz-submenu nzOpen nzTitle="Libros" nzIcon="form">
+                <ul>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/registro-libros">Registro libros</a><br>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/vista-libros">Lista libros</a>
+                    </li>
+                </ul>
+            </li>
+            <li nz-submenu nzOpen nzTitle="Prestamos" nzIcon="tag">
+                <ul>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/reservas">Reservas</a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/prestamo">Prestamos</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nz-sider>
+    <nz-layout>
+        <nz-header>
+            <div class="app-header">
+                <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+          <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
+                </span>
+                <input nz-input="" class="ant-input ds-input" placeholder="Buscador" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-label="search input" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: center; vertical-align: top;">
+            </div>
+
+
+
+
+        </nz-header>
+        <nz-content>
+            <div class="inner-content">
+                <router-outlet></router-outlet>
+            </div>
+        </nz-content>
+    </nz-layout>
+</nz-layout>

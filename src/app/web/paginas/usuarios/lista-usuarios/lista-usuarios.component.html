@@ -1,0 +1,48 @@
+<div class="contenedor-libros">
+    <ul>
+        <h1>Usuarios</h1>
+
+
+        <nz-table #editRowTable [nzShowPagination]="false" nzBordered [nzData]="usuarios">
+            <thead>
+                <tr>
+                    <th nzWidth="30%">Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Edad</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of usuarios" class="editable-row">
+                    <td>
+                        <div class="editable-cell" [hidden]="editId === usuario.id" (click)="startEdit(usuario.id)">
+                            {{usuario.nombre }}
+                        </div>
+                        <input [hidden]="editId !== usuario.id" type="text" nz-input [(ngModel)]="usuario.nombre" (blur)="stopEdit(usuario)" />
+                    </td>
+                    <td>
+                        <div class="editable-cell" [hidden]="editId ===  usuario.id" (click)="startEdit( usuario.id)">
+                            {{usuario.apellido }}
+                        </div>
+                        <input [hidden]="editId !== usuario.id" type="text" nz-input [(ngModel)]="usuario.apellido" (blur)="stopEdit(usuario)" />
+                    </td>
+                    <td>
+                        <div class="editable-cell" [hidden]="editId ===  usuario.id" (click)="startEdit( usuario.id)">
+                            {{usuario.edad}}
+                        </div>
+                        <input [hidden]="editId !== usuario.id" type="text" nz-input [(ngModel)]="usuario.edad" (blur)="stopEdit(usuario)" />
+                    </td>
+                    <td>
+                        <a nz-popconfirm nzPopconfirmTitle="¿Deseas eliminar?" (nzOnConfirm)="borrarUsuario(usuario.id)"> <i nz-icon nzType="delete" nzTheme="fill"></i></a>
+                    </td>
+
+                    <td>
+                        <button nz-button nzType="primary" nzShape="round" (click)="verPerfil(usuario.id)">Ver Perfil</button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </nz-table>
+    </ul>
+</div>

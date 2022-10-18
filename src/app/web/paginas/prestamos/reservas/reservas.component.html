@@ -1,0 +1,20 @@
+<div>
+    <h1>Reservas Activas</h1>
+</div>
+<nz-table [nzShowPagination]="false" nzBordered>
+    <thead>
+        <tr>
+            <th>Libro</th>
+            <th>Reservado por:</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let reserva of reservasActivas">
+            <td>{{reserva.titulo}}</td>
+            <td>{{reserva.nombre}}</td>
+            <td>
+                <button nz-button nzType="primary" nzShape="round" (click)="prestar(reserva.id)">Prestar</button> </td>
+        </tr>
+    </tbody>
+</nz-table>

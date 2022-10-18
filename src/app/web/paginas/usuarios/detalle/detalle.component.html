@@ -1,0 +1,26 @@
+<div class="encabezado">
+    <h1>Bienvenido {{usuario.nombre}} {{usuario.apellido}}</h1>
+</div>
+<div>
+    <nz-table [nzShowPagination]="false" nzBordered [nzData]="libros">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Fecha de Publicación</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let libro of libros">
+                <td>{{libro.titulo}}</td>
+                <td>{{libro.autor}}</td>
+                <td>{{libro.fecha_pub}}</td>
+                <td>{{libro.descripcion}}</td>
+                <td>
+                    <button nz-button nzType="primary" nzShape="round" (click)="reserva(libro.id)">Reservar</button>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>

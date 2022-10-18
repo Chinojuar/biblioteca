@@ -1,0 +1,30 @@
+<form nz-form [formGroup]="usuarioForm" (ngSubmit)="enviarFormulario(usuarioForm)" class="registro-servicio">
+
+    <div class="registro-producto__form--text">
+        <h2 class="titulo">Registro Usuarios</h2>
+    </div>
+
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Indique el nombre del Usuario">
+            <nz-input-group nzAddOnBeforeIcon="user">
+                <input type="text" nz-input formControlName="nombre" placeholder=" Nombre del Usuario " class="registro-servicio-form__input " />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Indique apellidos del usuario ">
+            <nz-input-group nzAddOnBeforeIcon="user">
+                <input type="text " nz-input formControlName="apellido" placeholder="Apellidos " class="registro-libro-form__input " />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Indique la edad del usuario">
+            <nz-input-group nzAddOnBeforeIcon="field-time">
+                <input type="text " nz-input formControlName="edad" placeholder="Edad " class="registro-libro-form__input " />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+
+    <button nz-button [disabled]="!usuarioForm.valid " class="boton-warning boton " nzBlock>Guardar</button>
+</form>

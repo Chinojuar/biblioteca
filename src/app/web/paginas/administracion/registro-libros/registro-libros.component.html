@@ -1,0 +1,36 @@
+<form nz-form [formGroup]="libroForm" (ngSubmit)="enviarFormulario(libroForm)" class="registro-servicio">
+
+    <div class="registro-producto__form--text">
+        <h2 class="titulo">Registro Libros</h2>
+    </div>
+
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Indique el nombre del Libro">
+            <nz-input-group nzAddOnBeforeIcon="slack-square">
+                <input type="text" nz-input formControlName="titulo" placeholder=" Nombre del Libro " class="registro-servicio-form__input " />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Indique el Autor del Libro ">
+            <nz-input-group nzAddOnBeforeIcon="user">
+                <input type="text " nz-input formControlName="autor" placeholder="Autor " class="registro-libro-form__input " />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Indique la fecha de creacion del libro ">
+            <nz-input-group nzAddOnBeforeIcon="field-time">
+                <input type="text " nz-input formControlName="fecha_pub" placeholder="Fecha Públicación " class="registro-libro-form__input " />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Agregue una descripcion del Libro ">
+            <nz-textarea-count [nzMaxCharacterCount]="2000 ">
+                <textarea formControlName="descripcion" placeholder="Descripción" rows="2 " nz-input></textarea>
+            </nz-textarea-count>
+        </nz-form-control>
+    </nz-form-item>
+    <button nz-button [disabled]="!libroForm.valid " class="boton-warning boton " nzBlock>Guardar</button>
+</form>
