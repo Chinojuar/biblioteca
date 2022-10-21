@@ -10,7 +10,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let prestamo of reservasActivas">
+        <tr *ngFor="let prestamo of prestamosActivos">
             <td>{{prestamo.titulo}}</td>
             <td>{{prestamo.nombre}}</td>
             <td><button nz-button nzType="primary" nzShape="round" (click)="regresar(prestamo.id)">Regresar</button></td>

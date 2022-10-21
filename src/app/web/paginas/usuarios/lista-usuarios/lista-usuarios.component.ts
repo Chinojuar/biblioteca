@@ -35,7 +35,11 @@ export class ListaUsuariosComponent implements OnInit {
   }
 
   borrarUsuario(id:number){
-this.usuarios.splice(id,1);  
+    for (let i = 0; i < this.usuarios.length; i++) {
+      if (this.usuarios[i].id == id) {
+        this.usuarios.splice(i,1); 
+      } 
+    }
 this.usuarioService.borrar(id).subscribe(data =>{
   console.log(data)
 })
